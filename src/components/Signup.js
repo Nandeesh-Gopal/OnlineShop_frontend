@@ -1,10 +1,11 @@
 import { useState } from "react";
-
+import Nav from "./Nav";
 function Signup() {
   const [formdata, setformdata] = useState({
     name: "",
     email: "",
-    password: ""
+    password: "",
+    phonenumber:null
   });
 
   const handlechange = (e) => {
@@ -25,15 +26,18 @@ function Signup() {
   };
 
   return (
+    <div>
+        <Nav/>
     <div className="signup">
       <h1>Signup</h1>
       <form className="signup-form" onSubmit={handlesubmit}>
         <input type="text" name="name" placeholder="Enter name" onChange={handlechange} />
         <input type="email" name="email" placeholder="Enter email" onChange={handlechange} />
         <input type="password" name="password" placeholder="Enter password" onChange={handlechange} />
+        <input type="number" name="phonenumber" placeholder="Phone no." onChange={handlechange}/>
         <button type="submit">Submit</button>
       </form>
-    </div>
+    </div></div>
   );
 }
 

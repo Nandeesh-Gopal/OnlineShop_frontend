@@ -6,6 +6,8 @@ function Nav(){
                 <h1>Online Shop</h1>
                 <input type='text' placeholder='search'/>
                 <div className='sub-nav'>
+                    <Link to="/partner">business partner</Link>
+                    <Link to="/">home</Link>
                     <Link to='/signup'>signup</Link>
                     <Link to='/login'>login</Link>
                 </div>
