@@ -1,4 +1,4 @@
-import React, { useState,useEffect} from "react";
+import { useState,useEffect} from "react";
 import Nav from "./Nav";
 function Home(){
     const [product,setproduct]=useState([])
@@ -19,6 +19,7 @@ function Home(){
               <h5>{item.description}</h5>
               <h3>{item.prize}</h3>
               <button>buy now</button>
+              <button>Add to cart</button>
             </div>
           ))
         }

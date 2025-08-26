@@ -10,6 +10,8 @@ input{
 .sub-nav{
   display: flex;
   gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
 .signup-form{
   display: flex;

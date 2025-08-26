@@ -4,10 +4,12 @@ import Home from './components/Home'
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
 import Signup from './components/Signup';
 import Product from './components/Product';
+import Cart from './components/Cart'
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path='/cart'element={<Cart/>}/>
         <Route path='/partner' element={<Product/>}/>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>

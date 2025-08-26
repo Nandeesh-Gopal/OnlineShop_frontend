@@ -1,22 +1,33 @@
 import { useState } from "react";
 import Nav from "./Nav";
+import { useNavigate } from "react-router-dom";
 function Login(){
+    const navi=useNavigate();
     const [formdata,setformdata]=useState({
         email:"",
         password:""
     })
-    const handlechange= e =>{
-        setformdata({...formdata,[e.target.name]:e.target.value})
+    const handlechange= a =>{
+        setformdata({...formdata,[a.target.name]:a.target.value})
     }
     const handlesubmit= async (e)=>{
         e.preventDefault()
         const res = await fetch("http://localhost:5000/login",{
             method:"post",
             headers:{"content-type":"application/json"},
-            body:JSON.stringify(formdata)
+            body:JSON.stringify(formdata),
+            mode:"cors"
         })
         const data =await res.json()
-        alert(data.message)
+        if(data.message==="Login success"){
+            localStorage.setItem("token",data.token)
+            localStorage.setItem("userid",data.userid)
+            localStorage.setItem("cartid",data.cart_id)
+            navi("/")
+        }
+        else{
+            alert(data.message)
+        }
 
     }
     return(
