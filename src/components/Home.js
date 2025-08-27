@@ -1,13 +1,39 @@
 import { useState,useEffect} from "react";
 import Nav from "./Nav";
+import { useNavigate } from "react-router-dom";
+import { json } from "body-parser";
 function Home(){
     const [product,setproduct]=useState([])
+    const navi= useNavigate()
     useEffect(()=>{
       fetch("http://localhost:5000/products")
       .then((res)=>res.json())
       .then((data)=>setproduct(data))
       .catch((err)=>console.log("err in fetch",err))
     },[])
+    const handleBuy =(productId)=>{
+      navi(`/product-buy/${productId}`)
+    }
+    const handleAddCart=(productid)=>{
+      const cartid =localStorage.getItem("cartid")
+      const userid=localStorage.getItem("userid")
+      if(!cartid|| !userid){
+        alert("please login")
+        navi("/")
+        return
+      }
+      fetch("http://localhost:5000/add-to-cart",{
+        method:"post",
+        headers:{"content-Type":"application/json"},
+        body: JSON.stringify({cartid,userid,productid,quantity:1})
+      })
+      .then(res=>res.json())
+      .then(data=>alert(data.message))
+      .catch((err)=>{
+        alert(err)
+      })
+
+    }
     return (
     <div>
       <Nav/>
@@ -18,8 +44,8 @@ function Home(){
               <h2>{item.product}</h2>
               <h5>{item.description}</h5>
               <h3>{item.prize}</h3>
-              <button>buy now</button>
-              <button>Add to cart</button>
+              <button onClick={()=>handleBuy(item.id)}>buy now</button>
+              <button onClick={()=>handleAddCart(product.id)}>Add to cart</button>
             </div>
           ))
         }

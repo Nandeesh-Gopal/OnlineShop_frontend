@@ -3,6 +3,8 @@ function Logout(){
     const navi=useNavigate()
     const handleLogout=()=>{
         localStorage.removeItem("token")
+        localStorage.removeItem("userid");
+        localStorage.removeItem("cartid"); 
         navi("/")
     }
     return(
