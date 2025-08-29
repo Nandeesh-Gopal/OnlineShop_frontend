@@ -1,7 +1,6 @@
 import { useState,useEffect} from "react";
 import Nav from "./Nav";
 import { useNavigate } from "react-router-dom";
-import { json } from "body-parser";
 function Home(){
     const [product,setproduct]=useState([])
     const navi= useNavigate()
@@ -25,7 +24,7 @@ function Home(){
       fetch("http://localhost:5000/add-to-cart",{
         method:"post",
         headers:{"content-Type":"application/json"},
-        body: JSON.stringify({cartid,userid,productid,quantity:1})
+        body: JSON.stringify({cartid,productid,quantity:1})
       })
       .then(res=>res.json())
       .then(data=>alert(data.message))
@@ -45,7 +44,7 @@ function Home(){
               <h5>{item.description}</h5>
               <h3>{item.prize}</h3>
               <button onClick={()=>handleBuy(item.id)}>buy now</button>
-              <button onClick={()=>handleAddCart(product.id)}>Add to cart</button>
+              <button onClick={()=>handleAddCart(item.id)}>Add to cart</button>
             </div>
           ))
         }
