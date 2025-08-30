@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import Nav from "./Nav";
-import { data } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function Cart(){
+    const navi =useNavigate();
+    const token=localStorage.getItem("token")
+    if(!token){
+        alert("please login first")
+        navi("/login")
+    }
     const [product,setproduct]=useState([])
     useEffect(()=>{
         const cartid=localStorage.getItem("cartid")
@@ -13,7 +19,15 @@ function Cart(){
     return(
         <div>
             <Nav/>
-
+            {
+                product.map((item)=>(
+                    <div key={item.id}>
+                        <h2>{item.product}</h2>
+                        <h5>{item.description}</h5>
+                        <h3>{item.prize}</h3>
+                    </div>
+                ))
+            }
         </div>
     )
 }
