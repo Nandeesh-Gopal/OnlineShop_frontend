@@ -1,9 +1,10 @@
 import {Link} from "react-router-dom"
 import Logout from "./Logout";
+import "../styles/nav.css"
 function Nav(){
     const token = localStorage.getItem("token")
     return (
-        <div>
+        <div className="main-container">
             <nav className='nav-bar'>
                 <h1>Online Shop</h1>
                 <input type='text' placeholder='search'/>

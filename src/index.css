@@ -1,3 +1,7 @@
+body{
+  background-color: gray;
+  margin: 0px;
+}
 .nav-bar{
   margin: 0;
   display: flex;
@@ -31,19 +35,4 @@ input{
   height: 100vh;
   justify-content: center;
 }
-.product{
-  max-width: 200px;
-}
-.product-group{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap:20px;
-}
-.product-form{
-  display: flex;
-  flex-direction: column;
-  gap:10px;
-  width:200px;
-}
+

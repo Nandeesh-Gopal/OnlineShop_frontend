@@ -1,6 +1,7 @@
 import { useState,useEffect} from "react";
 import Nav from "./Nav";
 import { useNavigate } from "react-router-dom";
+import "../styles/home.css"
 function Home(){
     const [product,setproduct]=useState([])
     const navi= useNavigate()
@@ -36,6 +37,15 @@ function Home(){
     return (
     <div>
       <Nav/>
+      <div className="banner-slider">
+        <div className="banner-slides">
+          <img src="/assets/banner/banner1.webp" alt="banner1"/>
+          <img src="/assets/banner/banner2.webp" alt="banner2"/>
+        </div>
+      </div>
+      <div className="electronics">
+        <div></div>
+      </div>
       <div className="product-group">
         {
           product.map((item)=>(
