@@ -23,7 +23,7 @@
     100%{transform: translateX(0%);}
 }
 .product-group{
-    height: 300px;
+    height: auto;
     background-color: white;
     padding: 20px;
 }
@@ -40,4 +40,7 @@
   flex-direction: column;
   gap:10px;
   width:200px;
+}
+.product{
+    width: 20%;
 }
