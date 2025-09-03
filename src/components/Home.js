@@ -43,9 +43,6 @@ function Home(){
           <img src="/assets/banner/banner2.webp" alt="banner2"/>
         </div>
       </div>
-      <div className="electronics">
-        <div></div>
-      </div>
       <div className="product-group">
         {
           product.map((item)=>(

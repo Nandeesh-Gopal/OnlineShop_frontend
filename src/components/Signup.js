@@ -28,6 +28,7 @@ function Signup() {
   return (
     <div>
         <Nav/>
+    <div className="container">
     <div className="signup">
       <h1>Signup</h1>
       <form className="signup-form" onSubmit={handlesubmit}>
@@ -37,7 +38,7 @@ function Signup() {
         <input type="text" name="phonenumber" placeholder="Phone no." onChange={handlechange}/>
         <button type="submit">Submit</button>
       </form>
-    </div></div>
+    </div></div></div>
   );
 }
 

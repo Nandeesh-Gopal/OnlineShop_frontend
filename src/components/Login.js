@@ -33,6 +33,7 @@ function Login(){
     return(
         <div>
         <Nav/>
+        <div className="container">
         <div className="signup">
         <form className="signup-form" onSubmit={handlesubmit}>
             <h1>Login</h1>
@@ -40,7 +41,7 @@ function Login(){
             <input type ="password" name="password" onChange={handlechange}/>
             <button>submit</button>
         </form>
-        </div>
+        </div></div>
         </div>
     );
 }
