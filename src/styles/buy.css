@@ -1,0 +1,10 @@
+.order-details{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.buy-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

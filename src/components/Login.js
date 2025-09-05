@@ -12,7 +12,7 @@ function Login(){
     }
     const handlesubmit= async (e)=>{
         e.preventDefault()
-        const res = await fetch("http://localhost:5000/login",{
+        const res = await fetch("http://localhost:5000/auth/login",{
             method:"post",
             headers:{"content-type":"application/json"},
             body:JSON.stringify(formdata),

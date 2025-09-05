@@ -28,7 +28,7 @@ input{
   width: 50px;
   background-color: blue;
   color: white;
-  border-radius: 100%;
+  border-radius: 10px;
 }
 .signup{
   display: flex;

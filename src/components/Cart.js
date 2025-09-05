@@ -9,6 +9,9 @@ function Cart(){
         navi("/login")
     }
     const [product,setproduct]=useState([])
+    const handlebuy=(productid)=>{
+        navi(`/product-buy/${productid}`);
+    }
     useEffect(()=>{
         const cartid=localStorage.getItem("cartid")
         fetch(`http://localhost:5000/fetch-cart?cartid=${cartid}`)
@@ -19,15 +22,18 @@ function Cart(){
     return(
         <div>
             <Nav/>
+            <h1>My Cart</h1>
+            <div className="product-group">
             {
                 product.map((item)=>(
-                    <div key={item.id}>
+                    <div key={item.id} className="product">
                         <h2>{item.product}</h2>
                         <h5>{item.description}</h5>
                         <h3>{item.prize}</h3>
+                        <button onClick={()=>handlebuy(item.id)}>buy now</button>
                     </div>
                 ))
-            }
+            }</div>
         </div>
     )
 }

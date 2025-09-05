@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Nav from "./Nav"
+import "../styles/product.css"
 function Product(){
     const [product,setproduct]=useState({
         product:"",
@@ -22,6 +23,7 @@ function Product(){
     return(
         <div>
             <Nav/>
+            <div className="container-product">
             <h1>Became a business partner</h1>
             <form onSubmit={handlesubmit} className="product-form">
                 <label for="p-name">Product name:</label>
@@ -31,7 +33,7 @@ function Product(){
                 <label for="p-price">Price</label>
                 <input type="number" name="prize" onChange={handlechange}/>
                 <button type="submit">submit</button>
-            </form>
+            </form></div>
         </div>
     )
 }

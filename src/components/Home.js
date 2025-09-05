@@ -12,6 +12,13 @@ function Home(){
       .catch((err)=>console.log("err in fetch",err))
     },[])
     const handleBuy =(productId)=>{
+      const cartid =localStorage.getItem("cartid")
+      const userid=localStorage.getItem("userid")
+      if(!cartid|| !userid){
+        alert("please login")
+        navi("/")
+        return
+      }
       navi(`/product-buy/${productId}`)
     }
     const handleAddCart=(productid)=>{
