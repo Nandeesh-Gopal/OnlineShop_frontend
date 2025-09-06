@@ -6,7 +6,7 @@ function Home(){
     const [product,setproduct]=useState([])
     const navi= useNavigate()
     useEffect(()=>{
-      fetch("http://localhost:5000/products")
+      fetch("http://localhost:5000/product/all")
       .then((res)=>res.json())
       .then((data)=>setproduct(data))
       .catch((err)=>console.log("err in fetch",err))
@@ -29,7 +29,7 @@ function Home(){
         navi("/")
         return
       }
-      fetch("http://localhost:5000/add-to-cart",{
+      fetch("http://localhost:5000/cart/add",{
         method:"post",
         headers:{"content-Type":"application/json"},
         body: JSON.stringify({cartid,productid,quantity:1})

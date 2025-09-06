@@ -12,7 +12,7 @@ function Product(){
     }
     const handlesubmit= async (e)=>{
         e.preventDefault();
-        const res=await fetch("http://localhost:5000/product",{
+        const res=await fetch("http://localhost:5000/product/add",{
             method:"post",
             headers:{"content-Type":"application/json"},
             body:JSON.stringify(product)

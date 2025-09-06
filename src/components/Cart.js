@@ -14,7 +14,7 @@ function Cart(){
     }
     useEffect(()=>{
         const cartid=localStorage.getItem("cartid")
-        fetch(`http://localhost:5000/fetch-cart?cartid=${cartid}`)
+        fetch(`http://localhost:5000/cart/fetch?cartid=${cartid}`)
         .then((res)=>res.json())
         .then((data)=>setproduct(data))
         .catch((err)=>console.log("err in fetch",err))

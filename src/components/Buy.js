@@ -10,7 +10,7 @@ function Buy(){
     const [address,setaddress]=useState("")
     const [phone,setphone]=useState()
     useEffect(()=>{
-        fetch(`http://localhost:5000/fetch-product-to-buy/${productid}`)
+        fetch(`http://localhost:5000/product/buy/${productid}`)
         .then(res=>res.json())
         .then(data=>setdata(data))
         .catch(err=>console.log(err))
@@ -34,7 +34,7 @@ function Buy(){
             address,
             total:quantity*product.prize
         }
-        fetch("http://localhost:5000/place-order",{
+        fetch("http://localhost:5000/order/place",{
             method:"post",
             headers:{"content-Type":"application/json"},
             body:JSON.stringify(order)
