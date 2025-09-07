@@ -1,17 +1,23 @@
 import { useNavigate } from "react-router-dom";
 import Logout from "./Logout";
 import "../styles/nav.css";
+import { useState } from "react";
 
 function Nav() {
   const navi = useNavigate();
   const token = localStorage.getItem("token");
-
+  const [search,setsearch]=useState("")
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    navi(`/search?q=${search}`)
+  }
   return (
     <div className="main-container">
       <nav className="nav-bar">
         <h1>Online Shop</h1>
-        <input type="text" placeholder="search" />
- 
+        <form onSubmit={handleSubmit}>
+          <input type="text" placeholder="search" onChange={(e)=>setsearch(e.target.value)}/>
+        </form>
         <div className="sub-nav">
           <a onClick={() => navi("/")}>Home</a>
 

@@ -6,6 +6,7 @@ import Signup from './components/Signup';
 import Product from './components/Product';
 import Cart from './components/Cart'
 import Buy from './components/Buy';
+import Search from './components/Search';
 function App() {
   return (
     <Router>
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
+        <Route path='/search' element={<Search/>}/>
       </Routes>
     </Router>
   );
